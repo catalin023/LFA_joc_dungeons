@@ -1,0 +1,100 @@
+[Sigma]
+#elementele alfabetului cate unul pe linie
+go Kitchen
+go Treasury
+take spoon
+go SecretExit
+go ThroneRoom
+take magic_wand
+take crown
+inventory
+take sword
+drop sword
+drop key
+drop spell_book
+go Wizard'sStudy
+go Library
+go DiningRoom
+go Pantry
+drop ancient_coin
+take invitation
+take spell_book
+go Armoury
+take chef's_hat
+take ancient_coin
+go EntranceHall
+drop magic_wand
+drop spoon
+look
+take key
+drop crown
+drop invitation
+drop chef's_hat
+#eroare daca e gol
+
+[Stari]
+#starile posibile listate cate una pe linie si alaturi indicele 1 - daca e stare initiala 2 - daca e stare finala 0 - daca e stare oarecare
+EntranceHall 1
+DiningRoom 0
+Kitchen 0
+Armoury 0
+Treasury 0
+Library 0
+Pantry 0
+ThroneRoom 0
+Wizard’sStudy 0
+SecretExit 2
+#eroare daca nu exista stare finala si initiala
+#eroare daca sunt multiple de starri initiale
+
+[Gama]
+#elementele aflabetului listei cate unu pe linie
+#nu pot exista elemente care incep cu "!"
+key
+invitation
+chef's_hat
+spoon
+sword
+crown
+ancient_coin
+spell_book
+magic_wand
+
+[Actions]
+#actiunile listate cate una pe linie in forma (stare initiala, simbolul din input, elementul care trebuie sa existe in lista sau opus doar cu "!" in fata lui,
+#elementul care va fi socs din lista, elementul care va fi adaugat listei, stare in care se duce) cu spatii intre ele
+#"~" - epsilon
+EntranceHall,go DiningRoom,~,~,~,DiningRoom
+EntranceHall,go Armoury,key,~,~,Armoury
+DiningRoom,go Kitchen,~,~,chef's_hat,Kitchen
+DiningRoom,go Treasury,sword,~,~,Treasury
+DiningRoom,go EntranceHall,invitation,~,~,EntranceHall
+Kitchen,go Pantry,spoon,~,~,Pantry
+Pantry,go Kitchen,~,~,chef's_hat,Kitchen
+Armoury,go EntranceHall,invitation,~,~,EntranceHall
+Armoury,go Treasury,sword,~,~,Treasury
+Armoury,go ThroneRoom,crown,~,~,ThroneRoom
+Treasury,go DiningRoom,~,~,~,DiningRoom
+Treasury,go Armoury,key,~,~,Armoury
+Treasury,go Wizard'sStudy,~,~,~,Wizard’sStudy
+Treasury,go Library,ancient_coin,~,~,Library
+Library,go Treasury,sword,~,~,Treasury
+Library,go SecretExit,magic_wand,~,~,SecretExit
+ThroneRoom,go Armoury,key,~,~,Armoury
+ThroneRoom,go Wizard'sStudy,spell_book,~,~,Wizard’sStudy
+Wizard’sStudy,go Treasury,sword,~,~,Treasury
+Wizard’sStudy,go SecretExit,magic_wand,~,~,SecretExit
+Wizard’sStudy,go ThroneRoom,crown,~,~,ThroneRoom
+SecretExit,go Library,ancient_coin,~,~,Library
+SecretExit,go Wizard'sStudy,spell_book,~,~,Wizard’sStudy
+EntranceHall,take key,~,~,key,EntranceHall
+DiningRoom,take invitation,~,~,invitation,DiningRoom
+DiningRoom,take chef's_hat,~,~,chef's_hat,DiningRoom
+Kitchen,take spoon,~,~,spoon,Kitchen
+Armoury,take sword,~,~,sword,Armoury
+Armoury,take crown,~,~,crown,Armoury
+Treasury,take ancient_coin,~,~,ancient_coin,Treasury
+Library,take spell_book,~,~,spell_book,TreLibraryasury
+Wizard’sStudy,take magic_wand,~,~,magic_wand,Wizard’sStudy
+#eroare daca sigma, starile si gama e gol
+#eroare daca nu exista actiune de la starea initiala sau catre starea finala

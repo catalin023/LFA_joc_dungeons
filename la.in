@@ -1,0 +1,34 @@
+[Sigma]
+#elementele alfabetului cate unul pe linie
+0
+1
+#eroare daca e gol
+
+[Stari]
+#starile posibile listate cate una pe linie si alaturi indicele 1 - daca e stare initiala 2 - daca e stare finala 0 - daca e stare oarecare
+q0 1 2
+q1 0
+q2 0
+q3 2
+#eroare daca nu exista stare finala si initiala
+#eroare daca sunt multiple de starri initiale
+
+[Gama]
+#elementele aflabetului listei cate unu pe linie
+#nu pot exista elemente care incep cu "!"
+a
+b
+c
+d
+e
+
+[Actions]
+#actiunile listate cate una pe linie in forma (stare initiala, simbolul din input, elementul care trebuie sa existe in lista sau opus doar cu "!" in fata lui,
+#elementul care va fi socs din lista, elementul care va fi adaugat listei, stare in care se duce) cu spatii intre ele
+#"~" - epsilon
+q0 0 ~ b c q1
+q1 0 c ~ b q1
+q1 1 !d b a q2
+q2 1 ~ a c q3
+#eroare daca sigma, starile si gama e gol
+#eroare daca nu exista actiune de la starea initiala sau catre starea finala

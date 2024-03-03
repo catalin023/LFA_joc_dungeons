@@ -1,0 +1,69 @@
+[Variables]
+#variabilele cu litre mare cate unul pe linie
+COMMAND
+ACTION
+ITEM
+ROOM
+#eroare daca e gol
+#eroare daca variabila contine litera mica sau contine cifra
+
+[Symbols]
+#elementele alfabetului cate unul pe linie
+go
+look
+inventory
+take
+drop
+EntranceHall
+DiningRoom
+Kitchen
+Armoury
+Treasury
+Library
+Pantry
+ThroneRoom
+Wizard’sStudy
+SecretExit
+key
+invitation
+chef's_hat
+spoon
+sword
+crown
+ancient_coin
+spell_book
+magic_wand
+#eroare daca e gol
+#eroare daca simbolul contine litera mare
+
+[Rules]
+#regulile listate cate una pe linie de forma:
+#in stanga variabila dupa o sageata -> si rezultatul
+COMMAND -> ACTION
+ACTION -> go ROOM
+ACTION -> look
+ACTION -> inventory
+ACTION -> take ITEM
+ACTION -> drop ITEM
+ROOM -> EntranceHall
+ROOM -> DiningRoom
+ROOM -> Kitchen
+ROOM -> Armoury
+ROOM -> Treasury
+ROOM -> Library
+ROOM -> Pantry
+ROOM -> ThroneRoom
+ROOM -> Wizard'sStudy
+ROOM -> SecretExit
+ITEM -> key
+ITEM -> invitation
+ITEM -> chef's_hat
+ITEM -> spoon
+ITEM -> sword
+ITEM -> crown
+ITEM -> ancient_coin
+ITEM -> spell_book
+ITEM -> magic_wand
+#eroare daca e gol
+#eroare daca elementul din stanga nu e variabila
+#eroare daca elementle din dreapta nu apartine variabilelor si simbolurilor

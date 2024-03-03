@@ -1,0 +1,69 @@
+[Sigma]
+#elementele alfabetului cate unul pe linie
+go
+look
+inventory
+take
+drop
+EntranceHall
+DiningRoom
+Kitchen
+Armoury
+Treasury
+Library
+Pantry
+ThroneRoom
+Wizard’sStudy
+SecretExit
+key
+invitation
+chef's_hat
+spoon
+sword
+crown
+ancient_coin
+spell_book
+magic_wand
+#eroare daca e gol
+
+[Stari]
+#starile posibile listate cate una pe linie si alaturi indicele 1 - daca e stare initiala 2 - daca e stare finala 0 - daca e stare oarecare
+q0 1
+q1 0
+q2 0
+q3 0
+q4 0
+q5 2
+#eroare daca nu exista stare finala si initiala
+#eroare daca sunt multiple de starri initiale
+
+[Actions]
+#actiunile listate cate una pe linie in forma (stare initiala, simbolul, caracterul de scos din stiva, caracterul de pus in stiva,stare finala) cu spatii intre ele
+q0 ~ ~ ACTION q1
+q1 go ~ ROOM q2
+q2 EntranceHall ROOM ~ q4
+q2 DiningRoom ROOM ~ q4
+q2 Kitchen ROOM ~ q4
+q2 Armoury ROOM ~ q4
+q2 Treasury ROOM ~ q4
+q2 Library ROOM ~ q4
+q2 Pantry ROOM ~ q4
+q2 ThroneRoom ROOM ~ q4
+q2 Wizard’sStudy ROOM ~ q4
+q2 SecretExit ROOM ~ q4
+q1 look ~ ~ q4
+q1 inventory ~ ~ q4
+q1 take ~ ITEM q3
+q1 drop ~ ITEM q3
+q3 key ITEM ~ q4
+q3 invitation ITEM ~ q4
+q3 chef's_hat ITEM ~ q4
+q3 spoon ITEM ~ q4
+q3 sword ITEM ~ q4
+q3 crown ITEM ~ q4
+q3 ancient_coin ITEM ~ q4
+q3 spell_book ITEM ~ q4
+q3 magic_wand ITEM ~ q4
+q4 ~ ACTION ~ q5
+#eroare daca starile sau simbolul nu exista
+#eroare daca nu exista actiune de la starea initiala sau catre starea finala
